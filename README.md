@@ -496,7 +496,7 @@ int main()
 	A a5 = (A)1;		// OK：允许 static_cast 的显式转换 
 	doA(1);			// OK：允许从 int 到 A 的隐式转换
 	if (a1);		// OK：使用转换函数 A::operator bool() 的从 A 到 bool 的隐式转换
-	bool a6（a1）;		// OK：使用转换函数 A::operator bool() 的从 A 到 bool 的隐式转换
+	bool a6(a1);		// OK：使用转换函数 A::operator bool() 的从 A 到 bool 的隐式转换
 	bool a7 = a1;		// OK：使用转换函数 A::operator bool() 的从 A 到 bool 的隐式转换
 	bool a8 = static_cast<bool>(a1);  // OK ：static_cast 进行直接初始化
 
@@ -805,11 +805,12 @@ public:
 ```
 
 #### 动态多态（运行期期/晚绑定）
-
 * 虚函数：用 virtual 修饰成员函数，使其成为虚函数
+* 动态绑定：当使用基类的引用或指针调用一个虚函数时将发生动态绑定
 
 **注意：**
 
+* 可以将派生类的对象赋值给基类的指针或引用，反之不可
 * 普通函数（非类成员函数）不能是虚函数
 * 静态函数（static）不能是虚函数
 * 构造函数不能是虚函数（因为在调用构造函数时，虚表指针并没有在对象的内存空间中，必须要构造函数调用完成后才会形成虚表指针）
@@ -3406,7 +3407,7 @@ int main( void )
 
 ## 📆 招聘时间岗位
 
-* [牛客网 . 2020届校招 | 2020 IT名企校招日程](https://www.nowcoder.com/school/schedule)
+* [牛客网 . 名企校招日程](https://www.nowcoder.com/school/schedule)
 
 <a id="recommend"></a>
 
